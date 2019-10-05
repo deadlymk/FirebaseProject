@@ -4,129 +4,6 @@ const createProduct = document.getElementById('product-form')
 var progress = document.getElementById('uploadProgress');
 var button = document.getElementById('uploadButton')
 
-
-
-
-
-
-
-// function renderProduct(doc){
-
-// db.collection('products').get().then((querySnapshot) => {
-
-//     var productObject = querySnapshot.docs;
-//    // console.log(productObject);
-//     var keys = Object.keys(productObject);
-//     for (var i = 0; i < keys.length; i++) {
-//         var currentObject = productObject[keys[i]];
-
-//         let growncolum = document.createElement('div');
-//         let productList = document.createElement('div')
-//         let productImg = document.createElement('div');
-//         let productListImg = document.createElement('img')
-//         let productName = document.createElement('h1');
-//         let productBody = document.createElement('div');
-//         let productPrice = document.createElement('p')
-//         let categoryProduct = document.createElement('p');
-//         let button = document.createElement('button');
-//         let cross = document.createElement('button');
-//         let styleI = document.createElement('i');
-//         let addToCartDiv = document.createElement('div');
-//         let productDetails = document.createElement('div');
-//         let productDetailsList = document.createElement('div');
-
-//         productListImg.src = currentObject.data().urlPic;
-//         categoryProduct.innerHTML = currentObject.data().category;
-//         productName.innerHTML = currentObject.data().Name;
-//         productPrice.innerHTML = currentObject.data().Price + "$";
-//         productDetailsList.innerHTML = currentObject.data().details;
-
-
-//         productDetailsList.setAttribute('class', 'product-details') 
-//         addToCartDiv.setAttribute('class', 'add-to-cart')
-//         styleI.setAttribute('class', "fas fa-trash");
-
-//         cross.setAttribute('class', 'admin');
-//         cross.innerHTML = 'remove';
-//         //    cross.innerHTML =  style="remove"
-
-//         button.innerHTML = "add cart"
-//         growncolum.setAttribute('class', "col-md-4 col-xs-6");
-       
-//         productList.setAttribute('data-id', currentObject.id) 
-//         productList.setAttribute('class', 'product');
-//         productImg.setAttribute('class', "product-img");
-//         productBody.setAttribute('class', 'product-body')
-//         categoryProduct.setAttribute('class', 'product-category');
-//         productName.setAttribute('class', 'product-name');
-//         productPrice.setAttribute('class', 'product-price');
-//         button.setAttribute('class', 'add-to-cart-btn')
-
-
-        
-//         row.appendChild(growncolum);
-//         growncolum.appendChild(productList);
-       
-//         productList.appendChild(productImg);
-//       //  productList.appendChild(productDetailsList);
-//         productList.appendChild(productBody);
-//         productList.appendChild(addToCartDiv);
-//         addToCartDiv.appendChild(cross);
-//         productImg.appendChild(productListImg);
-//       //  productImg.appendChild(productDetailsList);
-//         productList.appendChild(productDetails);
-//         productBody.appendChild(productDetailsList);
-//         productBody.appendChild(categoryProduct);
-//         productBody.appendChild(productName);
-//         productBody.appendChild(productPrice);
-//         addToCartDiv.appendChild(button)
-
-
-//         cross.addEventListener('click', (e) => {
-//             let id = e.target.parentElement.parentElement.getAttribute('data-id');
-//             db.collection('products').doc(id).delete();
-//             reload_page();
-//         })
-
-
-//     }
-
-
-
-// })
-
-
-
-
-
-
-
-
-
-
-// glavnoto! za kreiranje na product preku kreiranje na milijarda divovi
-//   db.collection('products').get().then((snapshot) => {
-//         snapshot.forEach(doc => {
-
-//             size = snapshot.size;
-//             console.log(size);
-//             renderProduct(doc);
-//         })
-//     })
-
-
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Testing Area<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
-
-
-
-
-
-
-
-
-
-
 //Making the upload picture here
 button.addEventListener('change', (e) => {
     var file = e.target.files[0];
@@ -184,17 +61,10 @@ button.addEventListener('change', (e) => {
                     reload_page();
                 })
 
-
-
-
             })
 
         });
 });
-
-
-
-
 
 
 // reloading page
@@ -302,12 +172,7 @@ function renderView () {
 
     db.collection('products').get().then((snapshot) => {
         snapshot.forEach(doc => {
-
             ids.push(doc.id)
-          //  size = snapshot.size;
-          // console.log(size);
-           console.log(ids)
-          //  renderProduct(doc);
          
         })
         renderProduct(ids)

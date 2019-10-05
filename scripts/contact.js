@@ -5,7 +5,6 @@ document.getElementById('contactForm').addEventListener('submit',submitForm);
 
 function submitForm(e){
     e.preventDefault();
-    //getvalues
     var name = getInputVal('name');
     var email = getInputVal('email');
     var phone = getInputVal('phone');
@@ -15,9 +14,8 @@ function submitForm(e){
     //save message to firebase
 
     saveMessage(name,email,phone,message)
-    //show alert
+  
 document.querySelector('.alert').style.display ='block';
-//hide alert after 3 sec
 
 setTimeout(()=>{
     document.querySelector('.alert').style.display ='none';
