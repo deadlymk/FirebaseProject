@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"
+		integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous"> -->
+
+	<!-- <link rel="stylesheet" href="boostrap/css/bootstrap.css"> -->
+	<!-- <link rel="stylesheet" href="boostrap/css/bootstrap.min.css"> -->
+
+	<link rel="stylesheet" href="boostrap/css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="libraryMain/boostrap.min.css">
+
+
+	<script src="https://kit.fontawesome.com/31d96edb35.js"></script>
+
+
+
+
+
+
+
+	<link rel="stylesheet" href="styles/imgSlider.css">
+	<link rel="stylesheet" href="styles/index.css">
+
+
+	<title>Document</title>
+</head>
+
+<body>
+	<header>
+		<div id="top-header">
+			<div class="container">
+				<ul class="header-links pull-left">
+					<li><a href="contact.html"><i class="fas fa-envelope"></i>Contact Us</a></li>
+					<li><a href="#"><i class="fa fa-envelope-o"></i> deadlymk@gmail.com</a></li>
+					<li><a href="#"><i class="fa fa-phone"></i>+038-22-33-33</a></li>
+				</ul>
+				<ul class="header-links pull-right" id="header-links-login-signup">
+
+					<li class="logged-out" style='display: none;'>
+						<a href="#" class="modal-trigger" data-target="#modal-signup" data-toggle="modal"><i
+								class="fas fa-user-plus"></i>Sign up</a>
+					</li>
+
+					<li class="logged-out" style='display: none;'>
+						<a href="#" class="modal-trigger" data-target="#modal-login" data-toggle="modal"><i
+								class="fas fa-sign-in-alt"></i>Login</a>
+					</li>
+
+					<li class="dropdown logged-in" style='display: none;'>
+						<a href="#" class="dropdown-toggle" id="accountDetails" data-toggle="dropdown"> <i
+								class="fas fa-users"></i></a>
+						<ul class="dropdown-menu">
+							<li align="center" class="well">
+								<div><img class="img-responsive" style="padding:2%;"
+										src="https://bootdey.com/img/Content/avatar/avatar1.png" /><a class="change"
+										href="">Change Picture</a></div>
+								<a id="logout" href="#" class="btn btn-sm btn-default"><span
+										class="glyphicon glyphicon-log-out"></span> Logout</a>
+								<div id="typeOfUser"> </div>
+
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+
+
+
+
+		<!-- SIGN UP MODAL -->
+		<div id="modal-signup" class="modal fade">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h3 class="text-center text-primery">Sign up</h3>
+					</div>
+					<div class="modal-body">
+						<form id="signup-form">
+							<div class="form-group">
+								<label for="signup-email">Email address</label>
+								<input type="email" id="signup-email" class="form-control" required />
+							</div>
+							<div class="form-group">
+								<label for="signup-password">Choose password</label>
+								<input type="password" id="signup-password" class="form-control" required />
+							</div>
+							<div class="form-group">
+								<label for="signup-username">Username</label>
+								<input type="text" id="signup-username" class="form-control" required />
+							</div>
+							<p class="error"></p>
+						</form>
+					</div>
+					<div class="modal-footer content-center">
+
+						<button class="btn btn-danger ">SignUp</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--Login modal-->
+		<div id="modal-login" class="modal  fade">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h3 class="text-center text-primery">Login</h3>
+					</div>
+					<div class="modal-body">
+						<form id="login-form">
+							<div class="form-group">
+								<label for="login-email">Email: </label>
+								<input type="email" id="login-email" class="form-control" required>
+							</div>
+							<div class="form-group">
+								<label for="login-password" aria-placeholder="Password"> Password: </label>
+								<input type="password" id="login-password" class="form-control" required>
+							</div>
+							<p class="error"></p>
+
+					</div>
+					<div class="modal-footer content-center">
+
+						<button class="btn btn-danger">Sign in</button>
+						<button type="buton" class="btn btn default" data-dismiss="modal">Close</button>
+
+
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- Create product modal! -->
+		<div id="product-modal" class="modal fade">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h3 class="text-center text-primery">Create product</h3>
+					</div>
+					<div class="modal-body">
+						<form id="product-form">
+							<div class="form-group">
+								<label>Product name</label>
+								<input type="text" name="name" class="form-control" required />
+							</div>
+							<div class="form-group">
+
+								<label>Product price</label>
+								<input type="number" name="price" class="form-control" required />
+							</div>
+							<div class="form-group">
+
+								<div class="product-dropdrown">
+									<select class="select-category">
+										<option value="">All Category</option>
+										<option value="Radio">Radio</option>
+										<option value="Camera">Camera</option>
+										<option value="Wheels">Wheels</option>
+										<option value="Lights">Lights</option>
+										<option value="Car Alarms">Car Alarms</option>
+										<option value="Car speaker">Car speakers</option>
+									</select>
+								</div>
+							</div>
+							<div class=form-group>
+
+								<textarea placeholder="Product details" name="details" id="textArea-product"
+									required></textarea>
+
+							</div>
+							<br>
+							<div class="form-group">
+								<p>Upload your picture</p>
+
+								<!-- <progress value="0" max="100" id="uploadProgress">0%</progress>  -->
+								<input type="file" name="urlPic" value="upload" id="uploadButton" class="filestyle"
+									data-icon="false">
+							</div>
+					</div>
+					<div class="modal-footer content-center">
+						<button class="btn btn-primary ">Submit</button>
+					</div>
+					</form>
+
+
+				</div>
+			</div>
+
+		</div>
+
+
+
+
+
+		<div id="header">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3">
+						<div class="header-logo">
+							<a href="#" class="logo">
+								<img src="img/bibbs_autoparts.png"  onclick="reload_page()" width="150px" height="90" alt="">
+
+							</a>
+						</div>
+					</div>
+
+
+
+					<div class="col-md-6">
+						<div class="header-search">
+							<form>
+
+								<select class="input-select">
+									<option value="">All Categories</option>
+									<option value="Radio">Radio</option>
+									<option value="Wheels">Wheels</option>
+
+								</select>
+								<input class="input" placeholder="Search here">
+								<button class="search-btn">Search</button>
+							</form>
+						</div>
+					</div>
+
+					<div class="col-md-3 clearfix">
+						<div class="header-ctn">
+							<div class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+									<i class="fa fa-shopping-cart"></i>
+									<span>Your Cart</span>
+								</a>
+							</div>
+
+							<div class="menu-toggle">
+								<a href="#">
+									<i class="fa fa-bars"></i>
+									<span>Menu</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<nav id="navigation">
+		<div class="container">
+			<div id="responsive-nav">
+				<ul class="main-nav nav navbar-nav">
+
+					<li class="active">
+						<a href="#" onclick="reload_page()">Home</a>
+					</li>
+
+					<li>
+						<a href="#">Categories</a>
+					</li>
+				</ul>
+				<ul class="pull-right">
+					<li>
+						<button id="CreateProduct" class="admin modal-trigger btn btn-primary btn-lg"
+							style='display: none;' data-toggle="modal" data-target="#product-modal">
+							Create product
+						</button>
+					</li>
+					<li>
+						<form class="center-align admin-actions admin" style='display: none;'>
+							<input type="email" placeholder="User email" id="admin-email" required />
+							<button class="btn-small yellow darken-2 z-depth-0" data-target="product-modal">Make
+								admin</button>
+						</form>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+
+		<div id="slider">
+			<figure>
+				<img src='img/kenwoodBanner.jpg'>
+				<img src='img/banner01.jpg'>
+				<img src="img/kenwoodBanner.jpg">
+				<img src="img/PIONEER_DEH_09_B_5ab3ca210178a.jpg">
+				<img src = "img/kenwoodBanner.jpg">
+			</figure>
+		</div>
+
+
+	</div>
+
+	<div class="section">
+		<div class="container">
+			<div class="row">
+				<div id="aside" class="col-md-3">
+					<div class="aside">
+						<h3 class="aside-title">Categories</h3>
+						<div class="checkbox-filter">
+
+							<div class="input-checkbox">
+								<input type="checkbox" id="category-1">
+								<label for="category-1">
+									<span></span>
+									Radio
+									<small>(120)</small>
+								</label>
+							</div>
+
+							<div class="input-checkbox">
+								<input type="checkbox" id="category-2">
+								<label for="category-2">
+									<span></span>
+									Camera
+									<small>(740)</small>
+								</label>
+							</div>
+
+							<div class="input-checkbox">
+								<input type="checkbox" id="category-3">
+								<label for="category-3">
+									<span></span>
+									Wheels
+									<small>(1450)</small>
+								</label>
+							</div>
+
+							<div class="input-checkbox">
+								<input type="checkbox" id="category-4">
+								<label for="category-4">
+									<span></span>
+									Lights
+									<small>(578)</small>
+								</label>
+							</div>
+
+							<div class="input-checkbox">
+								<input type="checkbox" id="category-5">
+								<label for="category-5">
+									<span></span>
+									Car Alarms
+									<small>(120)</small>
+								</label>
+							</div>
+
+							<div class="input-checkbox">
+								<input type="checkbox" id="category-6">
+								<label for="category-6">
+									<span></span>
+									Car speakers
+									<small>(740)</small>
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div id="store" class="col-md-9">
+					<div class="store-filter clearfix">
+						<div class="store-sort">
+							<label>
+								Sort By:
+								<select class="input-select">
+									<option value="0">Popular</option>
+									<option value="1">Position</option>
+								</select>
+							</label>
+
+							<label>
+								Show:
+								<select class="input-select">
+									<option value="0">20</option>
+									<option value="1">50</option>
+								</select>
+							</label>
+						</div>
+
+					</div>
+
+					<!-- creating product -->
+					<div class="row" id="row2">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<footer id="footer">	
+		<div class="section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-title">About Us</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+								incididunt ut.</p>
+							<ul class="footer-links">
+								<li><a href="#"><i class="fa fa-map-marker"></i>Boris Trajkovski 1000</a></li>
+								<li><a href="#"><i class="fa fa-phone"></i>+038-22-33-33</a></li>
+								<li><a href="#"><i class="fa fa-envelope-o"></i>deadly@gmail.com</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-md-3 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-title">Categories</h3>
+							<ul class="footer-links">
+								<li><a href="#">Hot deals</a></li>
+								<li><a href="#">Laptops</a></li>
+								<li><a href="#">Radios</a></li>
+								<li><a href="#">Cameras</a></li>
+								<li><a href="#">Accessories</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="clearfix visible-xs"></div>
+
+					<div class="col-md-3 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-title">Information</h3>
+							<ul class="footer-links">
+								<li><a href="#">About Us</a></li>
+								<li><a href="#">Contact Us</a></li>
+								<li><a href="#">Privacy Policy</a></li>
+								<li><a href="#">Orders and Returns</a></li>
+								<li><a href="#">Terms & Conditions</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-md-3 col-xs-6">
+						<div class="footer">
+							<h3 class="footer-title">Service</h3>
+							<ul class="footer-links">
+								<li><a href="#">My Account</a></li>
+								<li><a href="#">View Cart</a></li>
+								<li><a href="#">Wishlist</a></li>
+								<li><a href="#">Track My Order</a></li>
+								<li><a href="#">Help</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+
+
+
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-storage.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-functions.js"></script>
+
+
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#config-web-app -->
+
+	<script>
+		// Your web app's Firebase configuration
+		var firebaseConfig = {
+			apiKey: "AIzaSyAqNEj7zCBqNtKSR1a0e1ncuoIMH_gK8DQ",
+			authDomain: "fir-frontendproject.firebaseapp.com",
+			databaseURL: "https://fir-frontendproject.firebaseio.com",
+			projectId: "fir-frontendproject",
+			storageBucket: "fir-frontendproject.appspot.com",
+			messagingSenderId: "270140479799",
+			appId: "1:270140479799:web:6f80038bbad11e30"
+		};
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+
+		//make auth and firestore reference
+
+		const auth = firebase.auth();
+		const db = firebase.firestore();
+		const functions = firebase.functions();
+		const storage = firebase.storage();
+	</script>
+
+	<script src="libraryMain/jquery.min.js"></script>
+	<script src="libraryMain/bootstrap.min.js"></script>
+	<script src="libraryMain/jquery.zoom.min.js"></script>
+	<script src="scripts/index.js"></script>
+	<script src="scripts/app.js"></script>
+	<script src="scripts/auth.js"></script>
+	<script src="firebaseData/firebase.data.js"></script>
+	
+
+
+</body>
+
+</html>
